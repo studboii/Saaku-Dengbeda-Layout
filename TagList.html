@@ -1,0 +1,27 @@
+---
+layout: default
+title: Tags
+---
+<h1>All the tags</h1>
+
+<ul>
+	{% for tag in site.data.tags %}
+
+		<li>{{tag}}</li>
+			<ul>
+
+			  {% for post in site.posts %}
+			  	{% for pgTgs in post.tags %}
+			  		{% if pgTgs == tag %}
+					    <li>
+					      <a href="{{ post.url }}">{{ post.title }}</a>
+					    </li>
+					    {% break %}
+					{% endif %}
+			  	{% endfor %} <!-- list of pages for a link -->
+			  {% endfor %} <!-- all sites have been looked at here -->
+
+			</ul> <!-- the inner list ends here -->
+	{% endfor %} <!-- all tags are listed out here -->
+	
+</ul>

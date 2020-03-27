@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+	<ul class="navbar-nav">
+	 {% for item in site.data.nav %}
+	 	{% if page.title == item.name %}
+	 		<li class="nav-item active">
+	 			<a href=# class="nav-link " style="cursor: default;">
+		      {{ item.name }}
+		      </a>
+	 	{% else %}
+	 		<li class="nav-item">
+	 			<a href="{{ item.link }}" class="nav-link ">
+		      {{ item.name }}
+		    </a>
+		{% endif %}
+	 
+	 		
+		    
+		</li>
+	  {% endfor %}
+	</ul>
+</nav>
