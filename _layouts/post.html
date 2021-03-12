@@ -11,17 +11,23 @@
 </head>
 <body>
 	{% include nav.html %}
-<h1>{{ page.title }}</h1>
-<p>{{ page.date | date_to_string }} - {{ page.author }}</p>
-{% if page.tags contains "short" %}
-<div class="TextCont">
-	{{ content }}
-</div>
-{% else %}
-<div class="PoemCont">
-	{{ content }}
-</div>
-{% endif %}
+	<div class="container">
+		<h1>{{ page.title }}</h1>
+		{% if page.tags contains "short" %}
+		<p>{{ page.date | date_to_string }}  - {{ page.author }}</p>
+		<div class="TextCont">
+			{{ content }}
+		</div>
+		{% else %}
+		<p>{{ page.date | date_to_string }}</p>
+		<div class="PoemCont text-lowercase">
+			{{ content }}
+			<div class="row float-right" style="margin-right: 4em">
+				<p class="text-center text-capitalize"> - {{page.author}}</p>
+			</div>
+		</div>
+		{% endif %}
+	</div>
 
 </body>
 </html>
